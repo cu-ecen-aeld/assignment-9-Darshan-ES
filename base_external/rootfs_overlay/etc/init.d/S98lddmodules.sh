@@ -5,22 +5,33 @@ ScullUnload=/usr/bin/scull_unload
 ModuleLoad=/usr/bin/module_load
 ModuleUnload=/usr/bin/module_unload
 
-case "$1" in
-  start) 
-  cd /etc/init.d/ || exit 1
-    [ -x "$ScullLoad" ] && "$ScullLoad"
-    [ -x "$ModuleLoad" ] && "$ModuleLoad" faulty
-    lsmod | grep -q "hello" || modprobe hello
-    ;;
-  stop)
-    lsmod | grep -q "hello" && rmmod hello
-    [ -x "$ScullUnload" ] && "$ScullUnload"
-    [ -x "$ModuleUnload" ] && "$ModuleUnload" faulty
-    ;;
-  *)
+if [ "$1" = "start" ]; then
+    cd /etc/init.d/ || exit 1
+    if [ -x "$ScullLoad" ]; then
+        "$ScullLoad"
+    fi
+    if [ -x "$ModuleLoad" ]; then
+        "$ModuleLoad" faulty
+    fi
+    if ! lsmod | grep -q "hello"; then
+        modprobe hello
+    fi
+
+elif [ "$1" = "stop" ]; then
+    if lsmod | grep -q "hello"; then
+        rmmod hello
+    fi
+    if [ -x "$ScullUnload" ]; then
+        "$ScullUnload"
+    fi
+    if [ -x "$ModuleUnload" ]; then
+        "$ModuleUnload" faulty
+    fi
+
+else
     echo "Usage: $0 {start|stop}"
     exit 1
-    ;;
-esac
+fi
 
 exit 0
+
