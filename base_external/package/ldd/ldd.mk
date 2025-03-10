@@ -26,7 +26,7 @@ LDD_MODULE_MAKE_OPTS = \
 
 # TODO add your writer, finder and finder-test utilities/scripts to the installation steps below
 define LDD_INSTALL_TARGET_CMDS
-	#install scull load unload
+	#install scull load unloaD
 	for script in scull_load scull_unload; do \
          $(INSTALL) -m 755 $(@D)/scull/$$script $(TARGET_DIR)/usr/bin/$$script; \
         done
