@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LDD
+    bool "LDD Kernel Modules"
+    help
+      This package installs the misc-modules and scull.
