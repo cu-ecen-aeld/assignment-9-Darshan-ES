@@ -1,0 +1,4 @@
+config BR2_PACKAGE_AESDCHAR
+    bool "aesdchar"
+    help
+      This package installs the package for aesdchar.
