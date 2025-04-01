@@ -5,7 +5,7 @@
 ##############################################################
 
 # Reference your Assignment 3 repository
-AESD_ASSIGNMENTS_VERSION = '604b5b3b577a643785aaebfccc17b77dcd5909ca'
+AESD_ASSIGNMENTS_VERSION = '890b67b93fb6f25cfedad49275e7e1b0fe9ced09'
 AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-Darshan-ES.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
